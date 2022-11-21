@@ -1,31 +1,15 @@
 public class Person {
-    int yearOfBirth;
-    String name;
-    String town;
-    String jobTitle;
+    private int yearOfBirth;
+    private String name;
+    private String town;
+    private String jobTitle;
 
     Person(int yearOfBirth, String name, String town, String jobTitle) {
-        if (yearOfBirth >= 0) {
-            this.yearOfBirth = yearOfBirth;
-        } else {
-            this.yearOfBirth = Math.abs(yearOfBirth);
-        }
-        if (name == null) {
-            this.name = " !Информация не указана! ";
-        } else {
-            this.name = name;
 
-        }
-        if (town == null) {
-            this.town = " !Информация не указана! ";
-        } else {
-            this.town = town;
-        }
-        if (jobTitle == null) {
-            this.jobTitle = " !Информация не указана! ";
-        } else {
-            this.jobTitle = jobTitle;
-        }
+        this.yearOfBirth = yearOfBirth;
+        this.name = name;
+        this.town = town;
+        this.jobTitle = jobTitle;
     }
 
     public String toString() {
@@ -38,5 +22,48 @@ public class Person {
                 + this.jobTitle;
     }
 
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public void setYearOfBirth(int yearOfBirth) {
+        if (yearOfBirth <= 0) {
+            yearOfBirth = 0;
+        }
+        this.yearOfBirth = yearOfBirth;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (name == null) {
+            this.name = " «Информация не указана» ";
+        } else {
+            this.name = name;
+        }
+
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        if (town == null) {
+            this.town = "«Информация не указана»";
+        } else {
+            this.town = town;
+        }
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
 }
 
