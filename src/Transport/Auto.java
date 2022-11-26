@@ -1,19 +1,16 @@
+package Transport;
+
 import java.time.LocalDate;
 import java.util.regex.Pattern;
 
-public class Auto {
-   private final String brand;
-   private final String model;
+public class Auto extends Transport {
    private float engineVolume;
    private String color;
-   private final int year;
-   private final String country;
    private String transmission;
-   private final String bodyType;
-   private int registrationNumber;
-   private final int numberOfSeats;
-
-    public boolean isSummerRubber() {
+   private  String bodyType;
+   private String registrationNumber;
+   private  int numberOfSeats;
+   public boolean isSummerRubber() {
         return isSummerRubber;
     }
 
@@ -23,30 +20,39 @@ public class Auto {
 
     private boolean isSummerRubber;
 
-    Auto(String brand,
-         String model,
-         float engineVolume,
-         String color,
-         int year,
-         String country, String bodyType, int registrationNumber, int numberOfSeats, boolean isSummerRubber) {
-        this.brand = brand;
-        this.model = model;
-        this.bodyType = bodyType;
-        this.registrationNumber = registrationNumber;
+    public Auto(String brand, String model, int year, String country, String color, int maximumSpeed,
+                float engineVolume, String bodyType, String registrationNumber,
+                int numberOfSeats, boolean isSummerRubber, String transmission) {
+        super(year, country,brand,model,color,maximumSpeed);
         this.numberOfSeats = numberOfSeats;
+
+
+        if (bodyType == null) {
+            this.bodyType = "седан";
+        } else {
+            this.bodyType = bodyType;
+        }
+        if (transmission == null) {
+            this.transmission = "механическая";
+        } else {
+            this.transmission = transmission;
+        }
+        if (registrationNumber == null ) {
+            this.registrationNumber = " не указан ";
+        } else {
+            this.registrationNumber = registrationNumber;
+        }
+        if (numberOfSeats == 0) {
+            this.numberOfSeats = 4;
+        }
         this.isSummerRubber = isSummerRubber;
         if (engineVolume == 0) {
-            engineVolume = 1.5f;
+            this.engineVolume = 1.5f;
         } else {
             this.engineVolume = engineVolume;
         }
-        if (color == null) {
-            color = "белый";
-        } else {
-            this.color = color;
-        }
-        this.year = year;
-        this.country = country;
+
+
 
     }
 
@@ -63,30 +69,23 @@ public class Auto {
     }
 
     public String toString() {
-        return "Бренд " + this.brand
-                + "Модель" + this.model
-                + "Обьем двигателя " + this.engineVolume
-                + " Цвет " + this.color
-                + " Год выпуска " + this.year
-                + " Страна производства " + this.country;
+        return
+                "Обьем двигателя " + this.engineVolume
+                + " Цвет " + this.color;
+
 
     }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-
     public float getEngineVolume() {
         return engineVolume;
     }
 
     public void setEngineVolume(float engineVolume) {
         this.engineVolume = engineVolume;
+    }
+
+    @Override
+    public String refill() {
+        return "Бензин,Дизель или заряжать на электропарковках";
     }
 
     public String getColor() {
@@ -97,17 +96,16 @@ public class Auto {
         this.color = color;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-
-    public String getCountry() {
-        return country;
-    }
-
     public String getTransmission() {
         return transmission;
+    }
+
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
     }
 
     public void setTransmission(String transmission) {
@@ -121,8 +119,8 @@ public class Auto {
     public int getNumberOfSeats() {
         return numberOfSeats;
     }
-
     public static class Key {
+
         private final boolean remoteRunEngine;
         private final boolean noKeyAcces;
 
@@ -144,7 +142,7 @@ public class Auto {
     }
 
     public static class Insurance {
-        private LocalDate expireDate;
+        private final LocalDate expireDate;
         private double cost;
         private String number;
 
