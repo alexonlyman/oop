@@ -1,28 +1,24 @@
 package Transport;
 
-public class Bus extends Transport implements Competing {
+public class Freightcar extends Transport implements Competing{
     public static final int[] LAPS = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
     private int[] time = new int[4];
 
-
-    public Bus(String model, String brand,float engineVolume) {
-        super(model,brand, engineVolume);
+    public Freightcar(String model, String brand, float engineVolume) {
+        super(model, brand, engineVolume);
     }
-
-//    @Override
-//    public String refill() {
-//        return "Бензин или дизель";
-//    }
 
     @Override
     public void startMove() {
         System.out.println("начало движения");
+
     }
 
     @Override
     public void stopMove() {
         System.out.println("конец движения");
+
     }
 
     @Override
@@ -40,14 +36,14 @@ public class Bus extends Transport implements Competing {
 
     @Override
     public int[] bestLapTime() {
-            int minTime = time[0];
-            for (int i : time) {
-                if (i > minTime) {
-                    minTime = i;
-                }
-                System.out.println("минимальное время круга" + minTime);
+        int minTime = time[0];
+        for (int i : time) {
+            if (i > minTime) {
+                minTime = i;
             }
-            return time;
+            System.out.println("минимальное время круга" + minTime);
+        }
+        return time;
     }
 
     @Override
