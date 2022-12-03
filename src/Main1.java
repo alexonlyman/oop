@@ -5,6 +5,7 @@ public class Main1 {
         DriverB<Auto> autoDriverB = new DriverB<>("Валера", 6, "B");
         autoDriverB.refuel();
         autoDriverB.agreement("bmw");
+        autoDriverB.startMove();
 
 
     }

@@ -17,8 +17,6 @@ public class Main {
         Freightcar hyundai = new Freightcar("Hyundai", "HD 170", 25);
         Freightcar iveco = new Freightcar("Iveco", "Trakker AD380T38WH", 30);
 
-        int[] racing = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-        ford.pitStop();
 }
 }
