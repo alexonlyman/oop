@@ -1,8 +1,5 @@
 package Transport;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 public class Auto extends Transport implements Competing {
     public enum typeOfBody {SEDAN,HATCHBACK,COUPE,STATION_WAGON,SUV,CROSSOVER,PICKUP,VAN,MINIVAN}
     public static final String SEDAN = "седан";
@@ -32,6 +29,17 @@ public class Auto extends Transport implements Competing {
                 + "минивен" + MINIVAN;
     }
 
+    @Override
+    public boolean service() {
+
+        return false;
+    }
+
+    @Override
+    public void repair() {
+        System.out.println("машина починена");
+    }
+
     public static final int[] LAPS = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     private final int[] time = new int[4];
     private final int[] speed = new int[4];
@@ -43,6 +51,13 @@ public class Auto extends Transport implements Competing {
         System.out.println("начало движения");
 
     }
+
+    @Override
+    public void getDiagnosed() {
+
+    }
+
+
 
     @Override
     public void stopMove() {
@@ -84,6 +99,11 @@ public class Auto extends Transport implements Competing {
             System.out.println("минимальная скорость круга" + maxSpeed);
         }
         return speed;
+    }
+
+    @Override
+    public void addDriver(Driver driver) {
+
     }
 //   private String color;
 //   private String transmission;

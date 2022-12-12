@@ -30,6 +30,14 @@ public class Freightcar extends Transport implements Competing{
                     + "Грузопдьемность N2" + N2
                     + "Грузоподьемность N3" + N3;
         }
+
+        public static loadCapacity getValue(int value) {
+            for (loadCapacity e : loadCapacity.values())
+                if (value >= e.getMin() && value <= e.getMax()) {
+                    System.out.println(e);
+                    return e;
+                } return null;
+        }
     }
 
 
@@ -48,9 +56,26 @@ public class Freightcar extends Transport implements Competing{
     }
 
     @Override
+    public void getDiagnosed() {
+
+    }
+
+
+    @Override
     public void stopMove() {
         System.out.println("конец движения");
 
+    }
+
+    @Override
+    public boolean service() {
+
+        return false;
+    }
+
+    @Override
+    public void repair() {
+        System.out.println("машина починена");
     }
 
     @Override
@@ -81,5 +106,10 @@ public class Freightcar extends Transport implements Competing{
     @Override
     public int[] maxSpeed() {
         return new int[0];
+    }
+
+    @Override
+    public void addDriver(Driver driver) {
+
     }
 }

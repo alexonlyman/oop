@@ -58,8 +58,27 @@ public class Bus extends Transport implements Competing {
     }
 
     @Override
+    public void getDiagnosed() {
+        throw new RuntimeException("Автобусы диагерстику не проходят");
+
+
+    }
+
+
+    @Override
     public void stopMove() {
         System.out.println("конец движения");
+    }
+
+    @Override
+    public boolean service() {
+
+        return false;
+    }
+
+    @Override
+    public void repair() {
+
     }
 
     @Override
@@ -90,5 +109,10 @@ public class Bus extends Transport implements Competing {
     @Override
     public int[] maxSpeed() {
         return new int[0];
+    }
+
+    @Override
+    public void addDriver(Driver driver) {
+
     }
 }
