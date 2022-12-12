@@ -2,11 +2,41 @@ import Transport.Auto;
 import Transport.Bus;
 //import Transport.Train;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
+    private static final List<String> NAMES = List.of(
+            "Алекс Петров",
+            "Иван Петров",
+            "Петр Петров",
+            "Алексей Петров",
+            "Влад Петров",
+            "Григорий Валинов",
+            "Петр Кохлов",
+            "Генидий ГЕнадьев",
+            "Федя Олексав",
+            "Халив Амлем",
+            "Жора Жоров"
+    );
+    private static final Random RANDOM = new Random();
+
+    private static void randomFilling(Queue<String> queue) {
+
+        int size = RANDOM.nextInt(6);
+        for (int i = 0; i < size; i++) {
+            queue.offer(NAMES.get(RANDOM.nextInt(NAMES.size())));
+
+        }
+    }
+
     static Scanner scanner = new Scanner (System.in);
     public static void main(String[] args) {
+        Queue<String> queue1 = new ArrayDeque<>();
+        Queue<String> queue2 = new ArrayDeque<>();
+        randomFilling(queue1);
+        randomFilling(queue2);
+        System.out.println("первая " + queue1);
+        System.out.println("вторая " + queue2);
 //        Person maksim = new Person(-3, null, "Минск",
 //                "бренд-менеджером ");
 //        Person anya = new Person(1993, " Аня ", "Москва",

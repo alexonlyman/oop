@@ -7,4 +7,6 @@ public interface Competing {
     int[] bestLapTime();
 
     int[] maxSpeed();
+
+    void addDriver(Driver driver);
 }

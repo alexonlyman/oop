@@ -1,18 +1,25 @@
 package Transport;
 
+import java.sql.Driver;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Transport {
     private String brand;
     private String model;
     private float engineVolume;
+    private List<Transport> transports;
+    private final List<Driver> drivers = new ArrayList<>();
+    private final List<Mechanic> mechanics = new ArrayList<>();
+    private final List<Sponsor> sponsors = new ArrayList<>();
 
 //    private final int year;
 //    private final String country;
 //    private String color;
 //    private int maximumSpeed;
 
-    protected Transport(String brand, String model, float engineVolume) {
+    protected Transport(String brand, String model, float engineVolume, List<Driver>driver) {
 //        this.year = year;
 //        this.country = country;
         this.brand = brand;
@@ -25,6 +32,7 @@ public abstract class Transport {
         } else {
             this.engineVolume = engineVolume;
         }
+
 
 //        public abstract String refill ();
 //
@@ -64,7 +72,12 @@ public abstract class Transport {
 //        this.model = model;
     }
 
+    public Transport(String model, String brand, float engineVolume) {
+    }
+
     public abstract void startMove();
+
+    public abstract void getDiagnosed() throws RuntimeException;
 
     public abstract void stopMove();
 
@@ -91,6 +104,27 @@ public abstract class Transport {
         this.engineVolume = engineVolume;
     }
 
+    public abstract boolean service();
+
+    public abstract void repair() ;
+
+    public void addDriver (Driver driver) {
+        drivers.add(driver);
+    }
+
+    public void addMechanic(Mechanic mechanic) {
+        mechanics.add(mechanic);
+    }
+
+
+
+//    public void getGetDiagnosed() {
+//        return getDiagnosed;
+//    }
+//
+//    public void setGetDiagnosed(void getDiagnosed) {
+//        this.getDiagnosed = getDiagnosed;
+//    }
 }
 
 

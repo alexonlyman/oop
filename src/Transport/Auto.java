@@ -1,10 +1,43 @@
 package Transport;
 
 public class Auto extends Transport implements Competing {
+    public enum typeOfBody {SEDAN,HATCHBACK,COUPE,STATION_WAGON,SUV,CROSSOVER,PICKUP,VAN,MINIVAN}
+    public static final String SEDAN = "седан";
+    public static final String HATCHBACK = "хатчбэк";
+    public static final String COUPE = "купе";
+    public static final String STATION_WAGON = "универсал";
+    public static final String SUV = "внедорожник";
+    public static final String CROSSOVER = "кроссовер";
+    public static final String PICKUP = "пикап";
+    public static final String VAN = "фургон";
+    public static final String MINIVAN = "минивен";
 
     public Auto(String brand, String model, float engineVolume) {
         super(brand, model, engineVolume);
 
+    }
+
+    public String toString() {
+        return "седан" + SEDAN
+                + "хатчбэк" + HATCHBACK
+                + "купе" + COUPE
+                + "универсал" + STATION_WAGON
+                + "внедорожник" + SUV
+                + "кроссовер" + CROSSOVER
+                + "пикап" + PICKUP
+                + "фургон" + VAN
+                + "минивен" + MINIVAN;
+    }
+
+    @Override
+    public boolean service() {
+
+        return false;
+    }
+
+    @Override
+    public void repair() {
+        System.out.println("машина починена");
     }
 
     public static final int[] LAPS = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -18,6 +51,13 @@ public class Auto extends Transport implements Competing {
         System.out.println("начало движения");
 
     }
+
+    @Override
+    public void getDiagnosed() {
+
+    }
+
+
 
     @Override
     public void stopMove() {
@@ -59,6 +99,11 @@ public class Auto extends Transport implements Competing {
             System.out.println("минимальная скорость круга" + maxSpeed);
         }
         return speed;
+    }
+
+    @Override
+    public void addDriver(Driver driver) {
+
     }
 //   private String color;
 //   private String transmission;
